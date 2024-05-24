@@ -4,11 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
+#include "CharacterTypes.h"
 #include "MyAnimInstance.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class UDEMYPROJECT_API UMyAnimInstance : public UAnimInstance
 {
@@ -29,4 +27,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = Movement)
 	bool IsFalling;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Movement | Character State")
+	ECharacterState CharacterState;
 };
