@@ -18,8 +18,13 @@ class UDEMYPROJECT_API AMyCharacter : public ACharacter
 	GENERATED_BODY()
 public:
 	AMyCharacter();
+
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UFUNCTION(BlueprintCallable)
+	void SetWeaponCollisionEnabled(ECollisionEnabled::Type CollisionEnabled);
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -41,6 +46,15 @@ protected:
 	void PlayEquipMontage(FName SectionName);
 	bool CanDisarm();
 	bool CanArm();
+
+	UFUNCTION(BlueprintCallable)
+	void Disarm();
+
+	UFUNCTION(BlueprintCallable)
+	void Arm();
+
+	UFUNCTION(BlueprintCallable)
+	void FinishedEquipping();
 private:
 	ECharacterState CharacterState = ECharacterState::ECS_Unequipped;
 
